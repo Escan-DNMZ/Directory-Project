@@ -1,0 +1,35 @@
+﻿@model List<sign.Models.SignUp>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+    <h1>Directory</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-1">
+        @for (char i = 'A'; i <= 'Z'; i++)
+        {
+            <h3><a href="/Default/List?List=@i">@i</a></h3>
+        }
+    </div>
+    
+
+    @foreach (var item in Model)
+    {
+    <div class="col-md-3">
+        <div class="card">
+            <img class="card-img-top" src="~/Images/1.png" alt="@item.Name @item.Surname" style="width:100%">
+            <div class="card-body">
+                <h4 class="card-title">@item.Name @item.Surname</h4>
+                <p class="card-text">@item.Email</p>
+                <a href="/Default/Details/@item.Id" class="btn btn-primary">Details</a>
+                <br /><br />
+            </div>
+        </div>
+    </div>
+
+    }
+</div>
